@@ -1,3 +1,7 @@
+%Take two
+% Richard Zhang - rzhang@g.hmc.edu
+% Sept 22 2018
+
 function [ h,t ] = impulse_response( x, y, fs )
 %impulse_response returns the impulse response of the system given the
 %system input, x, and system output, y.
@@ -8,8 +12,9 @@ function [ h,t ] = impulse_response( x, y, fs )
 
 [X,f] = fdomain(x,fs);
 [Y,f] = fdomain(y,fs);
-H = X./Y;   % the calculated frequency response
+H = Y./X;   % the calculated frequency response, fixed
 [h,t] = tdomain(H,fs);
+plot(t,h); % plot the frequency response
 
 end
 
